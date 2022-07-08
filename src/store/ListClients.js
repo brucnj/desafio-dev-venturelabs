@@ -7,7 +7,7 @@ export const ListClients = () => {
     // const name = state.name;
 
     return (
-        <div className='flex justify-around	my-10'>
+        <div className='flex justify-around	my-10 animate__animated animate__fadeIn animate__faster'>
             <div className='bg-neutral-800 py-8 px-7 md:px-16 md:py-14 rounded-md container md:max-w-2xl shadow-lg mx-10 md:mx-0'>
                 <h1 className="text-white text-2xl font-semibold">Lista de Cliente</h1>
                 

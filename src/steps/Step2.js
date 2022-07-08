@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,15 @@ import axios from 'axios';
 export const Step2 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+    // Evita que ao precionar o Enter a página volte a anterior
+    useEffect(() => {
+      window.addEventListener("keypress", function(e) {
+        if(e.key === "Enter"){
+          e.preventDefault();
+        }
+      })
+    });
 
   // Inputs do Passo 2
   const cep = useSelector(state => state.cep);
@@ -63,7 +72,7 @@ export const Step2 = () => {
   }
 
   return (
-    <div className='flex justify-around	my-10'>
+    <div className='flex justify-around	my-10 animate__animated animate__fadeIn animate__faster'>
       {/* Progress bar */}
       <div className='hidden md:block md:max-w-2xl w-full rounded-t-md absolute'>
         <div className='hidden md:block md:max-w-2xl w-2/4 bg-emerald-600 z-20 h-2 absolute rounded-tl-md '></div>

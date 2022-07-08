@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
@@ -8,6 +8,15 @@ import InputMask from "react-input-mask"
 export const Step1 = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  // Evita que ao precionar o Enter a página volte a anterior
+  useEffect(() => {
+    window.addEventListener("keypress", function(e) {
+      if(e.key === "Enter"){
+        e.preventDefault();
+      }
+    })
+  });
 
   // Inputs do Passo 1
   const name = useSelector(state => state.name);
@@ -39,14 +48,14 @@ export const Step1 = () => {
   }
 
   return (
-    <div className='flex justify-around	my-10'>
+    <div className='flex justify-around	my-10 animate__animated animate__fadeIn animate__faster'>
       {/* Progress bar */}
       <div className='hidden md:block md:max-w-2xl w-full rounded-t-md absolute'>
         <div className='hidden md:block md:max-w-2xl w-1/4 bg-emerald-600 z-20 h-2 absolute rounded-tl-md '></div>
         <div className='hidden md:block bg-emerald-600 opacity-40 z-10 h-2 rounded-t-md '></div>
       </div>
 
-      <div className='bg-neutral-800 py-8 px-7 md:px-16 md:py-14 rounded-md container md:max-w-2xl shadow-lg mx-10 md:mx-0'>
+      <div className=' bg-neutral-800 py-8 px-7 md:px-16 md:py-14 rounded-md container md:max-w-2xl shadow-lg mx-10 md:mx-0'>
 
         <form onSubmit={handleSubmit(onSubmit)} className="grid">
           {/* Nome */}

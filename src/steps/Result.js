@@ -13,10 +13,10 @@ export const Result = () => {
   }
 
   return (
-    <div className='flex justify-around	my-10'>
+    <div className='flex justify-around	my-10 animate__animated animate__fadeIn animate__faster'>
       <div className='bg-neutral-800 py-8 px-7 text-center md:px-16 md:py-14 rounded-md container md:max-w-2xl shadow-lg mx-10 md:mx-0'>
 
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-emerald-600 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-emerald-600 mx-auto animate__animated animate__tada" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
         </svg>
 
