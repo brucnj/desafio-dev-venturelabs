@@ -1,14 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  margin: 0;
+  font-family: Poppins;
+  background-image: linear-gradient(#000, #262626);
+  min-height: 93.9vh;
+  height: 100%;
+}
+
+.logo-wrapper {
+  position:  relative;
+  z-index: 30;
+  width: 100%;
+  height: 3rem;
+  margin: 0px auto;
+}
+
+.logo-container {
+    /* position: absolute; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    height: 100%;
+    margin: 30px auto;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  display: inline-block;
+}
+
+.logo-svg {
+  height: 3rem;
+} 
+/* body {
+  margin: 1px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: black;
 }
 
 code {
@@ -16,17 +55,52 @@ code {
     monospace;
 }
 
-#root {
+#background {
+  background-image: linear-gradient(black, grey);
+} */
+
+/* #root {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0)
-}
-
+  transform: translate3d(-50%, -50%, 0);
+} */
+/* 
 div {
   margin-bottom: 15px;
 }
 
 label {
   margin-right: 5px;
+} */
+
+/* estilos Customizados */
+
+/* Logo */
+/* .logo-wrapper {
+  position: absolute;
+  /* top: 0; */
+  /* z-index: 30;
+  width: 100%;
+  height: 6rem;
+  margin-right: auto;
+  margin-left: auto;
+} */
+
+/* .logo-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  display: inline-block;
+}
+
+.logo-svg {
+  height: 3rem;
+}  */

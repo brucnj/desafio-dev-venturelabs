@@ -1,6 +1,4 @@
-
-
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -38,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Estilos Customizados */
+/* .card {
+  background-color: #262626;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 30px 40px;
+  position: absolute;
+  width: 100%;
+  /* text-align: center; */
+  /* max-height: 350px;
+  align-items: center;
+  height: 100%;
+  max-width: 640px;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+} */
+
+/* .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}  */
+
+/* Fontes e tipografia */
+/* .title-white {
+  color: #fff;
+  font-size: 40px;
+} */
+
+/* Botões */
+/* .button-green {
+  background: #34d399;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  border-radius: 10px;
+  text-transform: uppercase;
+} */
+
+/* Inputs */
+/* .input {
+  width: 100%;
+  height: 30px;
+  background: #000;
+  border: none;
+  border-radius: 10px;
+  color: #a3a3a3;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.input:focus-visible {
+  color: #34d399;
+  outline: #34d399 auto 1px;
+}  */
