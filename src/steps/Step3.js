@@ -20,11 +20,19 @@ export const Step3 = () => {
     data.dtNascimento = document.getElementById("dtNascimento").value;
     data.cpf = document.getElementById("cpf").value;
 
-    dispatch(seDtNascimento(data.dtNascimento));
-    dispatch(setCpf(data.cpf));
-    dispatch(setRenda(data.renda));
-    
-    history.push("./result");
+    if(data.dtNascimento.includes("_") || data.cpf.includes("_")){
+      document.getElementById("errorDtNascimento").classList.remove("hidden");
+      document.getElementById("errorCpf").classList.remove("hidden");
+    } else {
+      document.getElementById("errorDtNascimento").classList.add("hidden");
+      document.getElementById("errorCpf").classList.add("hidden");
+
+      dispatch(seDtNascimento(data.dtNascimento));
+      dispatch(setCpf(data.cpf));
+      dispatch(setRenda(data.renda));
+      
+      history.push("./result");
+    }
   };
 
   const goBack = () => {
@@ -39,19 +47,21 @@ export const Step3 = () => {
           {/* Data de Nascimento */}
           <div className='mb-4'>
             <label htmlFor='dtNascimento' className='text-white text-lg'>Data de Nascimento</label>
-            <InputMask mask="99/99/9999" type="text" id="dtNascimento" name="dtNascimento" ref={register} placeholder="Digite sua Data de Nascimento" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
+            <InputMask mask="99/99/9999" type="text" id="dtNascimento" name="dtNascimento" ref={register} placeholder="Digite sua Data de Nascimento" required className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
+            <p id="errorDtNascimento" className='hidden text-red-500 text-md'>A data de nascimento deve ser válida</p>
           </div>
 
           {/* CPF */}
           <div className='mb-4'>
             <label htmlFor='cpf' className='text-white text-lg'>CPF</label>
-            <InputMask mask="999.999.999-99" type="text" id="cpf" name="cpf" ref={register} placeholder="Digite seu CPF" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
+            <InputMask mask="999.999.999-99" type="text" id="cpf" name="cpf" ref={register} placeholder="Digite seu CPF" required className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
+            <p id="errorCpf" className='hidden text-red-500 text-md'>O CPF deve ser válido</p>
           </div>
 
           {/* Renda Mensal */}
           <div className='mb-4'>
             <label htmlFor='renda' className='text-white text-lg'>Renda Mensal</label>
-            <input type="text" name="renda" ref={register} placeholder="Digite sua Renda Mensal" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
+            <input type="text" name="renda" ref={register} placeholder="Digite sua Renda Mensal" required className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
           </div>
 
           <div className='flex justify-between mt-5'> 

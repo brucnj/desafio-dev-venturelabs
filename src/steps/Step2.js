@@ -19,12 +19,18 @@ export const Step2 = () => {
 
   const onSubmit = data => {
     data.cep = document.getElementById("cep").value;
+    console.log(data.cep)
 
-    dispatch(setCep(data.cep));
-    dispatch(setAddress1(data.address1 + " No. " + data.num));
-    dispatch(setAddress2(data.address2));
+    if(data.cep.includes("_")){
+      document.getElementById("errorCep").classList.remove("hidden");
+    } else {
+      document.getElementById("errorCep").classList.add("hidden");
+      dispatch(setCep(data.cep));
+      dispatch(setAddress1(data.address1 + " No. " + data.num));
+      dispatch(setAddress2(data.address2));
 
-    history.push("./step3");
+      history.push("./step3");
+    }
   };
 
   const goBack = () => {
@@ -34,12 +40,26 @@ export const Step2 = () => {
   const getAddressByCep = (e) => {
     e.preventDefault();
     const cep = document.getElementById("cep").value;
-    axios.get("https://viacep.com.br/ws/" + cep + "/json/")
+
+    if(cep.includes("_")){
+      document.getElementById("errorCep").classList.remove("hidden");
+    } else {
+      document.getElementById("errorCep").classList.add("hidden");
+      axios.get("https://viacep.com.br/ws/" + cep + "/json/")
       .then(function (response) {
-        const inputAddress = document.getElementById("address1");
-        const address = response.data.logradouro + " - " + response.data.bairro + ", " + response.data.localidade;
-        inputAddress.value = address;
+        console.log(response)
+
+        if(response.data.erro === "true"){
+          document.getElementById("errorApiCep").classList.remove("hidden");
+        } else {
+          document.getElementById("errorApiCep").classList.add("hidden");
+          const inputAddress = document.getElementById("address1");
+          const address = response.data.logradouro + " - " + response.data.bairro + ", " + response.data.localidade;
+          inputAddress.value = address;
+        }
       });
+    }
+    
   }
 
   return (
@@ -52,7 +72,9 @@ export const Step2 = () => {
             <br />
             <div className="grid grid-cols-6">
               <div className="col-span-5">
-                <InputMask mask="99999-999" type="text" id="cep" name="cep" ref={register} placeholder="Digite seu CEP" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700'/>
+                <InputMask mask="99999-999" type="text" id="cep" name="cep" ref={register} placeholder="Digite seu CEP" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700' required />
+                <p id="errorCep" className='hidden text-red-500 text-md'>O CEP deve conter todos os números (8 números)</p>
+                <p id="errorApiCep" className='hidden text-red-500 text-md'>Este CEP não existe</p>
               </div>
               <div className="pl-3">
                 {/* Botão para procurar endereco com base no CEP */}
@@ -66,18 +88,18 @@ export const Step2 = () => {
           </div>
 
           {/* Endereço 1 (Puxado Pelo CEP) */}
-          <div className="mb-4 grid grid-cols-4">
-            <div className="col-span-3">
+          <div className="mb-4 md:grid md:grid-cols-4">
+            <div className="md:col-span-3">
               <label htmlFor='address1' className='text-white text-lg'>Endereço</label>
               <br />
-              <input id="address1" placeholder="Digite seu Endereço" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700' type="text" name="address1"  ref={register} />
+              <input id="address1" placeholder="Digite seu Endereço" className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700' type="text" name="address1"  ref={register} required/>
             </div>
 
             {/* Numero */}
-            <div className="pl-3">
+            <div className="md:pl-3 mt-3 md:mt-0">
               <label htmlFor='num' className='text-white text-lg'>Número</label>
               <br />
-              <input placeholder="No." className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700' type="text" name="num"  ref={register} />
+              <input placeholder="No." className='bg-black h-10 px-3 w-full text-neutral-400 rounded-md focus:text-emerald-400 focus:border-2 focus:border-emerald-400 focus:outline-none placeholder:text-neutral-700' type="text" name="num"  ref={register} required/>
             </div>
           </div>
 
