@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 export const Home = () => {
 
     return (
-        // <div className="flex justify-center items-center my-auto content-center">[
         <div className="flex justify-around	my-10 mx-10 md:mx-0 animate__animated animate__fadeIn animate__faster">
             <div className="bg-neutral-800 px-20 py-14 rounded-md text-center container-lg">
                 <h1 className="text-white font-semibold text-3xl">Bem-vindo ao Wizard</h1>

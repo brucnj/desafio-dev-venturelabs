@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux'
 
 export const ListClients = () => {
     const state = useSelector(state => state);
-    // const jsonData = JSON.stringify(state, null, 2);
-    // const name = state.name;
 
     return (
         <div className='flex justify-around	my-10 animate__animated animate__fadeIn animate__faster'>

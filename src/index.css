@@ -10,6 +10,7 @@ body {
   height: 100%;
 }
 
+/* Cabeçalho com Logo */
 .logo-wrapper {
   position:  relative;
   z-index: 30;
@@ -19,7 +20,6 @@ body {
 }
 
 .logo-container {
-    /* position: absolute; */
     width: 100%;
     display: flex;
     align-items: center;
@@ -40,67 +40,3 @@ body {
 .logo-svg {
   height: 3rem;
 } 
-/* body {
-  margin: 1px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: black;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-#background {
-  background-image: linear-gradient(black, grey);
-} */
-
-/* #root {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-} */
-/* 
-div {
-  margin-bottom: 15px;
-}
-
-label {
-  margin-right: 5px;
-} */
-
-/* estilos Customizados */
-
-/* Logo */
-/* .logo-wrapper {
-  position: absolute;
-  /* top: 0; */
-  /* z-index: 30;
-  width: 100%;
-  height: 6rem;
-  margin-right: auto;
-  margin-left: auto;
-} */
-
-/* .logo-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  display: inline-block;
-}
-
-.logo-svg {
-  height: 3rem;
-}  */
